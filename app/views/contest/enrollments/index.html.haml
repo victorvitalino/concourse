@@ -15,3 +15,7 @@
           %th Data
           %th Ações
       %tbody
+        - @enrollments.each_with_index do |enrollment, i|
+          %tr
+            %td= i + 1
+            %td= enrollment

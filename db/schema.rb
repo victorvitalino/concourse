@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701143508) do
+ActiveRecord::Schema.define(version: 20150701194905) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -57,6 +57,17 @@ ActiveRecord::Schema.define(version: 20150701143508) do
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "code_marca_enrollments", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "candidate_id"
+    t.integer  "enrollment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "code_marca_enrollments", ["candidate_id"], name: "index_code_marca_enrollments_on_candidate_id"
+  add_index "code_marca_enrollments", ["enrollment_id"], name: "index_code_marca_enrollments_on_enrollment_id"
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "project_id"

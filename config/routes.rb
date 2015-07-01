@@ -28,9 +28,14 @@ Rails.application.routes.draw do
 
   namespace :contest, path: '/' do 
     authenticate :candidate do 
-      root "candidate_enrollments#index"
+      root "home#index"
 
-      resources :code_enrollments
+      resources :projects
+
+      resources :enrollments do
+        resources :code_enrollments, path: 'inscricao'
+      end
+      
       resources :messages
       resources :status_enrollments
       resources :users do

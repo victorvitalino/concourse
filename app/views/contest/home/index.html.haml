@@ -1,0 +1,25 @@
+.row
+  .col-md-12
+    %p.bs-component
+      %h2
+        %b Inscrições Abertas
+%hr/
+.row
+  .col-md-12
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th #
+          %th Concurso
+          %th Inscrição
+          %th Data
+          %th Ações
+      %tbody
+        - @enrollments.each_with_index do |enrollment, i|
+          %tr
+            %td= i + 1
+            %td= link_to enrollment.project.name, contest_project_path(enrollment.project) if enrollment.project.present?
+            %td= enrollment.name
+            %td= "#{enrollment.start.strftime('%d/%m/%Y')} até #{enrollment.end.strftime('%d/%m/%Y')}"
+            %td.col-md-2
+              = link_to "Realizar Minha Inscrição", new_contest_enrollment_code_enrollment_path(enrollment), class: 'btn btn-success' if enrollment.start <= Date.today 

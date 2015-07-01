@@ -50,7 +50,7 @@ module Administrator
     end
 
     def set_enrollment
-      @enrollment = @project.enrollments.find(params[:id]) 
+      @enrollment = @project.enrollments.unscoped.find(params[:id]) 
     end
 
     def set_project
