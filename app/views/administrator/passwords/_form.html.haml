@@ -1,0 +1,15 @@
+= simple_form_for [:administrator, @user] do |f|
+  .row
+    .col-md-4
+      = f.input :current_password
+  .row
+    .col-md-4
+      = f.input :password
+  .row
+    .col-md-4
+      = f.input :password_confirmation
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "voltar", administrator_root_path, class: 'btn btn-default'

@@ -1,0 +1,27 @@
+.row
+  .col-md-12
+    %h1
+      %b= @project.name
+.row
+  .col-md-12
+    = link_to "editar projeto", edit_administrator_project_path(@project)
+%hr/
+
+.row
+  .col-md-12
+    %ul.nav.nav-pills
+      %li{:class => (controller_name == "projects" ? "active" : "") }
+        = link_to "Descrição", administrator_project_path(@project)
+      %li{:class => (controller_name == "pages" ? "active" : "") }
+        = link_to "Páginas", administrator_project_pages_path(@project)
+      %li{:class => (controller_name == "navs" ? "active" : "") }
+        = link_to "Menus", administrator_project_navs_path(@project)
+      %li{:class => (controller_name == "enrollments" ? "active" : "") }
+        = link_to "Tipos de inscrições", administrator_project_enrollments_path(@project)
+      %li{:class => (controller_name == "participations" ? "active" : "") }
+        = link_to "Tipos de envio de projeto", administrator_project_participations_path(@project)
+      %li{:class => (controller_name == "enrollment_candidates" ? "active" : "") }
+        = link_to "Inscritos", administrator_project_enrollment_candidates_path(@project)
+      %li{:class => (controller_name == "participation_candidates" ? "active" : "") }
+        = link_to "Projetos enviados", administrator_project_participation_candidates_path(@project)
+%hr/

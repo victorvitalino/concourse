@@ -1,0 +1,31 @@
+= simple_form_for [:administrator, @project, @enrollment] do |f|
+  .row
+    .col-md-12
+      = f.input :name
+  .row
+    .col-md-12
+      = f.input :description
+  .row
+    .col-md-2
+      = f.input :start, as: 'string', input_html: { class: 'date', value: (@enrollment.start) ? localize(f.object.start) : nil}
+    .col-md-2
+      = f.input :end, as: 'string', input_html: { class: 'date', value: (@enrollment.end) ? localize(f.object.end) : nil}
+    .col-md-2
+      = f.input :code
+  .row
+    .col-md-2
+      = f.input :fee, as: 'select', prompt: 'selecione...'
+    .col-md-2
+      = f.input :fee_value
+  %hr/
+  .row
+    .col-md-12
+      = f.input :content_mail, input_html: { class: 'redactor'}
+  .row
+    .col-md-2
+      = f.input :status
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "voltar", administrator_project_enrollments_path(@enrollment.project), class: 'btn btn-default'

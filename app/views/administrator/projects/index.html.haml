@@ -1,0 +1,19 @@
+.row
+  - @projects.each_with_index do |project, i|
+    .col-md-4 
+      .panel.panel-default
+        .panel-heading
+          = "##{i + 1} Concurso - <b>#{project.name}</b>".html_safe
+
+        .panel-body
+          .row
+            .col-md-4
+              = "<b>início</b>: #{project.start.strftime('%d/%m/%Y')}".html_safe
+            .col-md-4
+              = "<b>fim</b>: #{project.end.strftime('%d/%m/%Y')}".html_safe
+            .col-md-4
+              %h4= status_helper project.status
+          %hr/
+        .panel-footer
+          = link_to "editar", edit_administrator_project_path(project), class: "btn btn-primary"
+          = link_to "visualizar", administrator_project_path(project), class: 'pull-right btn btn-success'

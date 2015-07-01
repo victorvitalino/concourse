@@ -1,0 +1,31 @@
+.row
+  .col-md-12
+    %p.bs-component
+      %h4
+        %b Usuários
+        = link_to 'novo usuário', new_administrator_user_path, class: 'btn btn-success pull-right'
+%hr/
+.row
+  .col-md-12
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th #
+          %th Nome
+          %th E-mail
+          %th Último acesso
+          %th Criado em
+          %th Privilégio
+          %th Ações
+      %tbody
+        - @users.each_with_index do |user, i|
+          %tr
+            %td= i + 1
+            %td= user.name
+            %td= user.email
+            %td= user.last_sign_in_at.strftime('%d/%m/%Y %H:%M')
+            %td= user.created_at.strftime('%d/%m/%Y %H:%M')
+            %td= user.administrator ? "administrador" : "acesso normal"
+            %td
+              = link_to "editar", edit_administrator_user_path(user)
+              = link_to "remover", administrator_user_path(user), method: :delete, data: {confirm: t(:confirm_remove)}

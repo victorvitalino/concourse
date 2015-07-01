@@ -1,0 +1,27 @@
+.row
+  .col-md-12
+    %p.bs-component
+      %h4
+        %b Listagem de Páginas
+        = link_to 'nova página', new_administrator_project_page_path(@project), class: 'btn btn-success pull-right'
+%hr/
+.row
+  .col-md-12
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th #
+          %th Nome
+          %th Criado em
+          %th Status
+          %th Ações
+      %tbody
+        - @pages.each_with_index do |page, i|
+          %tr
+            %td.col-md-1= i + 1
+            %td.col-md-6= page.name
+            %td= page.created_at.strftime('%d/%m/%Y')
+            %td= status_helper page.status
+            %td.col-md-2
+              = link_to "editar", edit_administrator_project_page_path(project_id: @project, id: page)
+              = link_to "remover", administrator_project_page_path(project_id: @project, id: page), method: :delete, data: {confirm: t(:confirm_remove)}

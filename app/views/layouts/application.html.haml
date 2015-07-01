@@ -7,6 +7,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/partials/nav_administrator' if user_signed_in?
-    = render 'layouts/partials/nav_contest' if candidate_signed_in?
-    = yield
+    .container
+      = yield

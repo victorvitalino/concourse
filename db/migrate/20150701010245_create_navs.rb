@@ -7,7 +7,7 @@ class CreateNavs < ActiveRecord::Migration
       t.references :page, index: true
       t.integer :target
       t.boolean :status
-      t.integer :order
+      t.integer :order, default: 0
       t.string  :url
       
       t.timestamps null: false

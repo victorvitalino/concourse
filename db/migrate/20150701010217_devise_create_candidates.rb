@@ -39,6 +39,7 @@ class DeviseCreateCandidates < ActiveRecord::Migration
       t.string  :cep 
       t.string  :address
       t.string  :complement
+      t.integer :sex
 
       t.timestamps null: false
     end

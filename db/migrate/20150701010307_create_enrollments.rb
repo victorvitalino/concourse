@@ -9,7 +9,7 @@ class CreateEnrollments < ActiveRecord::Migration
       t.boolean   :status
       t.string  :code, unique: true
       t.boolean :fee
-      t.boolean :fee_value
+      t.float :fee_value
       t.text  :content_mail   
       t.timestamps null: false
     end

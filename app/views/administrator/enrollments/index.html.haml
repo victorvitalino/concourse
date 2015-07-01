@@ -1,0 +1,31 @@
+.row
+  .col-md-12
+    %p.bs-component
+      %h4
+        %b Listagem de Tipos de Inscrições
+        = link_to 'novo tipo de inscrição', new_administrator_project_enrollment_path(@project), class: 'btn btn-success pull-right'
+%hr/
+.row
+  .col-md-12
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th #
+          %th Nome
+          %th Data
+          %th Taxa de inscrição
+          %th Status
+          %th Code
+          %th Ações
+      %tbody
+        - @enrollments.each_with_index do |enrollment, i|
+          %tr
+            %td.col-md-1= i + 1
+            %td= enrollment.name
+            %td= "#{enrollment.start.strftime('%d/%m/%Y')} - #{enrollment.end.strftime('%d/%m/%Y')}" 
+            %td= number_to_currency enrollment.fee_value if enrollment.fee
+            %td= status_helper enrollment.status
+            %td= enrollment.code
+            %td.col-md-2
+              = link_to "editar", edit_administrator_project_enrollment_path(project_id: @project, id: enrollment)
+              = link_to "remover", administrator_project_enrollment_path(project_id: @project, id: enrollment), method: :delete, data: {confirm: t(:confirm_remove)}

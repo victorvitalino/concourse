@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration
       t.date    :start
       t.date    :end
       t.boolean :status
+      t.string  :slug, unique: true
       
       t.timestamps null: false
     end

@@ -1,18 +1,76 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %p
-        Currently waiting confirmation for: #{resource.unconfirmed_email}
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-  .form-actions
-    = f.button :submit, "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.row
+  .col-md-4.col-md-offset-4{'style':'text-align: center'}
+    %h1 
+      %b Concursos Codhab
+      %br/
+      Atualizar Meu Cadastro
+
+.row
+  .card
+    / <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />
+    %img#profile-img.profile-img-card{:src => "//ssl.gstatic.com/accounts/ui/avatar_2x.png"}/
+    %p#profile-name.profile-name-card
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      %span#reauth-email.reauth-email
+      .row
+        .col-md-6
+          = f.input :name, required: false, autofocus: true, input_html: { placeholder: "Digite seu nome completo"}
+        .col-md-2
+          = f.input :cpf, required: false, autofocus: true, input_html: { placeholder: "Digite seu cpf (somente números)"}
+        .col-md-2
+          = f.input :rg, required: false, autofocus: true, input_html: { placeholder: "Digite seu rg"}
+        .col-md-2
+          = f.input :sex, as: 'select', collection: Candidate.sexes.keys.to_a, prompt: 'selecione...'
+      .row
+        .col-md-2
+          = f.input :telephone, required: false, autofocus: true
+        .col-md-2
+          = f.input :telephone_optional, required: false, autofocus: true
+        .col-md-2
+          = f.association :state, prompt: 'selecione...'
+        .col-md-4
+          = f.input :city, as: 'select', input_html: { id: 'candidate_city_id', name: 'candidate[city_id]'}
+        .col-md-2
+          = f.input :cep, required: false, autofocus: true
+      .row
+        .col-md-12
+          = f.input :address
+      %hr/
+      .row
+        .col-md-4
+          = f.input :email, required: false, autofocus: true, input_html: { placeholder: "Digite seu e-mail"}
+        .col-md-4
+          = f.input :password, required: false, input_html: { placeholder: "Digite sua senha"}
+        .col-md-4
+          = f.input :password_confirmation, required: false, input_html: { placeholder: "Repita sua senha"}
+      %hr/
+      .row
+        .col-md-4
+          = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+      %hr/
+      .row
+        .col-md-12
+          = link_to "Voltar", contest_root_path, class: 'btn btn-primary'
+          = f.button :submit, "Atualizar meu Cadastro", class: 'btn btn-success pull-right'
+  / /card-container
+  / /container
+
+:javascript
+
+  $(document).ready(function() {
+    $("#candidate_state_id").on('change', function() {
+    
+      html = '<option value>Carregando...</option>'
+      $("#candidate_city_id").html(html)
+    
+      $.getJSON("#{cities_path}?state=" + $(this).val(), function(data) {
+        html = ""
+        console.log(data)
+        for(var i = 0; data.length > i; i++) {
+          html += "<option value="+data[i].id+">"+data[i].name+"</option>"
+        }
+        $("#candidate_city_id").html(html)
+      });
+    });
+  });

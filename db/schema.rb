@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701010618) do
+ActiveRecord::Schema.define(version: 20150701143508) do
 
   create_table "candidates", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150701010618) do
     t.string   "cep"
     t.string   "address"
     t.string   "complement"
+    t.integer  "sex"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -46,6 +47,16 @@ ActiveRecord::Schema.define(version: 20150701010618) do
   add_index "candidates", ["email"], name: "index_candidates_on_email", unique: true
   add_index "candidates", ["reset_password_token"], name: "index_candidates_on_reset_password_token", unique: true
   add_index "candidates", ["state_id"], name: "index_candidates_on_state_id"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "capital"
+    t.integer  "state_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "project_id"
@@ -56,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150701010618) do
     t.boolean  "status"
     t.string   "code"
     t.boolean  "fee"
-    t.boolean  "fee_value"
+    t.float    "fee_value"
     t.text     "content_mail"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -83,10 +94,10 @@ ActiveRecord::Schema.define(version: 20150701010618) do
     t.integer  "page_id"
     t.integer  "target"
     t.boolean  "status"
-    t.integer  "order"
+    t.integer  "order",      default: 0
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "navs", ["page_id"], name: "index_navs_on_page_id"
@@ -95,6 +106,7 @@ ActiveRecord::Schema.define(version: 20150701010618) do
   create_table "pages", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "name"
+    t.string   "slug"
     t.text     "content"
     t.boolean  "status"
     t.datetime "created_at", null: false
@@ -129,8 +141,32 @@ ActiveRecord::Schema.define(version: 20150701010618) do
     t.date     "start"
     t.date     "end"
     t.boolean  "status"
+    t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "redactor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable"
+  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type"
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.string   "acronym"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "status_enrollments", force: :cascade do |t|

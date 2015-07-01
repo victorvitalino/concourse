@@ -4,4 +4,26 @@
       = f.input :name
   .row
     .col-md-12  
-      = f.button :submit
+      = f.input :description
+  .row
+    .col-md-2
+      = f.input :start, as: 'string', input_html: { class: 'date', value: (@project.start) ? localize(f.object.start) : nil}
+    .col-md-2  
+      = f.input :end, as: 'string',input_html: { class: 'date', value: (@project.end) ? localize(f.object.end) : nil}
+  %hr/
+  .row
+    .col-md-3
+      = f.input :logo, as: 'file'
+    .col-md-3
+      = f.input :header, as: 'file'
+    .col-md-3
+      = f.input :footer, as: 'file'
+  %hr/
+  .row
+    .col-md-12
+      = f.input :status
+  %hr/
+  .row
+    .col-md-12  
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "voltar", administrator_projects_path, class: 'btn btn-default'

@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require redactor-rails
 //= require_tree .
+
+var ready;
+
+ready = function() {
+
+  $('.date').mask('00/00/0000', {placeholder: "__/__/____"});
+
+};
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

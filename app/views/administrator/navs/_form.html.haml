@@ -1,0 +1,21 @@
+= simple_form_for [:administrator, @project, @nav] do |f|
+  .row
+    .col-md-12
+      = f.input :name
+  .row
+    .col-md-2
+      = f.input :nav_type, as: 'select', collection: Nav.nav_types.keys.to_a, prompt: 'selecione...'
+    .col-md-2
+      = f.input :target, as: 'select', collection: Nav.targets.keys.to_a, prompt: 'selecione...'
+    .col-md-2
+      = f.association :page, prompt: 'selecione...'
+    .col-md-6
+      = f.input :url
+  .row
+    .col-md-2
+      = f.input :status
+  %hr/
+  .row
+    .col-md-12
+      = f.button :submit, class: 'btn btn-success'
+      = link_to "voltar", administrator_project_navs_path(@nav.project), class: 'btn btn-default'

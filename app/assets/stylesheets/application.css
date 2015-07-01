@@ -10,7 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require lib/bootstrap.min
  *= require lib/bootstrap-reset.min
+ *= require lib/bootstrap.min
  *= require lib/font-awesome.min
+ *= require lib/session
+ *= require redactor-rails
   */

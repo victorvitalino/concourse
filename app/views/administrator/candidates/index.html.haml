@@ -1,0 +1,25 @@
+.row
+  .col-md-12  
+    %h2 
+      %b Lista de Candidatos Cadastrados
+%hr/
+.row
+  .col-md-12  
+    %table.table.table-condensed.table-striped
+      %thead
+        %tr
+          %th #            
+          %th Nome            
+          %th E-mail            
+          %th Cidade            
+          %th Estado            
+          %th Status            
+      %tbody
+        - @candidates.each_with_index do |candidate, i|
+          %tr
+            %td= i + 1
+            %td= candidate.name
+            %td= candidate.email
+            %td= candidate.city if candidate.city.present?
+            %td= candidate.state if candidate.state.present?
+            
