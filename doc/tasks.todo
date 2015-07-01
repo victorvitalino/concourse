@@ -1,0 +1,27 @@
+concourse
+  candidato
+    ☐ eu como candidato realizo cadastro e obtenho acesso a área do candidato
+    ☐ eu como candidato edito minhas informações pessoais
+    ☐ eu como candidato atualizo minha senha
+    ☐ eu como candidato visualizo projetos
+    ☐ eu como candidato visualizo detalhes de um projeto
+    ☐ eu como candidato visualizo inscrições de um projeto
+    ☐ eu como candidato realizo a inscrição em um projeto
+    ☐ eu como candidato visualizo detalhes de minha inscrição
+    ☐ eu como candidato visualizo as inscrições de que estou participando e qual estado dela
+    ☐ eu como candidato envio meu projeto através da minha inscrição
+    ☐ eu como candidato visualizo o status do meu projeto junto a minha inscrição
+    ☐ eu como candidato realizo consultas
+  administração
+    ☐ eu como administrador realizo a criação de projetos
+    ☐ eu como administrador realizo a criação de páginas
+    ☐ eu como administrador realizo a criação de menus
+    ☐ eu como administrador realizo a criação de inscrições
+    ☐ eu como administrador realizo a criação e envio de projetos vínculado a inscrições
+    ☐ eu como administrador cadastro novos usuários
+    ☐ eu como administrador insiro permissões aos usuários por projeto
+    ☐ eu como administrador atualizo minha senha
+    ☐ eu como administrador realizo a visualização de candidatos do concurso
+    ☐ eu como administrador realizo a homologação do candidato
+    ☐ eu como administrador envio mensagens pela plataforma ao candidato
+    

@@ -1,0 +1,2 @@
+module Contest::ProjectsHelper
+end
