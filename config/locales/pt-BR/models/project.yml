@@ -1,0 +1,14 @@
+pt-BR:
+ activerecord:
+  models:
+   project: "Projeto"
+  attributes:
+   project:
+    name: "Nome"
+    description: "Descrição"
+    start: "Início"
+    end: "Fim"
+    logo: "Logo"
+    header: "Cabeçalho"
+    footer: "Rodapé"
+    status: "Projeto publicado"

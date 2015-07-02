@@ -1,0 +1,9 @@
+pt-BR:
+ activerecord:
+  models:
+   page: "Página"
+  attributes:
+   page:
+    name: "Nome"
+    content: "Conteúdo"
+    status: "Página publicada"

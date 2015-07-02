@@ -1,0 +1,14 @@
+pt-BR:
+ activerecord:
+  models:
+   participation: "Participação"
+  attributes:
+   participation:
+    name: "Nome"
+    description: "Descrição"
+    start: "Início"
+    end: "Fim"
+    code: "Código"
+    enrollment: "Inscrição vínculada"
+    content_mail: "Corpo do e-mail enviado ao candidato"
+    status: "Envio de projeto publicado"

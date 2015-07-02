@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RedactorRails::Engine => '/redactor_rails'
   devise_for :candidates, controllers: {sessions: 'sessions', registrations: 'registrations'}
-  devise_for :users
+  devise_for :users,      controllers: {sessions: 'user_sessions'}
   
    
   get 'cities',       as: 'cities',   to: "informations#cities"
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :projects do 
         resources :enrollment_candidates
         resources :participation_candidates
+        resources :winners
 
         resources :participations
         resources :enrollments
@@ -33,7 +34,9 @@ Rails.application.routes.draw do
     authenticate :candidate do 
       root "home#index"
 
-      resources :projects
+      resources :projects do 
+        resources :pages
+      end
 
       resources :enrollments do
         resources :code_enrollments, path: 'inscricao'

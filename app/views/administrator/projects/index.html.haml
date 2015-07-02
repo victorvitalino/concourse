@@ -1,19 +1,23 @@
-.row
-  - @projects.each_with_index do |project, i|
-    .col-md-4 
+- @projects.each_with_index do |project, i|
+  .row
+    .col-md-12
       .panel.panel-default
         .panel-heading
           = "##{i + 1} Concurso - <b>#{project.name}</b>".html_safe
 
         .panel-body
           .row
-            .col-md-4
+            .col-md-2
               = "<b>início</b>: #{project.start.strftime('%d/%m/%Y')}".html_safe
-            .col-md-4
+            .col-md-2
               = "<b>fim</b>: #{project.end.strftime('%d/%m/%Y')}".html_safe
-            .col-md-4
-              %h4= status_helper project.status
+            .col-md-2
+              = "<b>Status</b>: #{status_helper project.status}".html_safe
+            .col-md-2
+              = "<b>Inscritos</b>: 0".html_safe
+            .col-md-2
+              = "<b>Projetos Enviados</b>: 0".html_safe
           %hr/
-        .panel-footer
-          = link_to "editar", edit_administrator_project_path(project), class: "btn btn-primary"
-          = link_to "visualizar", administrator_project_path(project), class: 'pull-right btn btn-success'
+          .pull-right 
+            = link_to "editar", edit_administrator_project_path(project), class: "btn btn-primary"
+            = link_to "visualizar", administrator_project_path(project), class: 'btn btn-success'

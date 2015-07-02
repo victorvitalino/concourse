@@ -1,0 +1,15 @@
+pt-BR:
+ activerecord:
+  models:
+   enrollment: "Inscrição"
+  attributes:
+   enrollment:
+    name: "Nome"
+    description: "Descrição"
+    start: "Início"
+    end: "Fim"
+    code: "Código"
+    fee: "Haverá taxa de inscrição?"
+    fee_value: "Valor de taxa"
+    content_mail: "Corpo do e-mail enviado ao candidato"
+    status: "Inscrição publicada"

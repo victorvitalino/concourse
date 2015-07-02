@@ -7,9 +7,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = render 'layouts/partials/nav_administrator'
-    .container{'style': 'margin-bottom: 60px'}
-      - flash.each do |key, value|
-        %div{:class => "alert alert-#{key}"}= value
-      = render 'layouts/partials/nav_administrator_project'
+    .container
       = yield

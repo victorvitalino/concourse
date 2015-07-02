@@ -24,4 +24,6 @@
         = link_to "Inscritos", administrator_project_enrollment_candidates_path(@project)
       %li{:class => (controller_name == "participation_candidates" ? "active" : "") }
         = link_to "Projetos enviados", administrator_project_participation_candidates_path(@project)
+      %li{:class => (controller_name == "winners" ? "active" : "") }
+        = link_to "Vencedores", administrator_project_winners_path(@project)
 %hr/

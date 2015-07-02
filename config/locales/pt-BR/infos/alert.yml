@@ -1,2 +1,3 @@
 pt-BR:
  confirm_remove: "Tem certeza que deseja remover?"
+ success: 'Operação realizada com successo!'
