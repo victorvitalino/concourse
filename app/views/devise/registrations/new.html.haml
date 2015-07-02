@@ -1,7 +1,7 @@
 .row
   .col-md-4.col-md-offset-4{'style':'text-align: center'}
-    %h1 
-      %b Concursos Codhab
+    %h1
+      %b Concursos CODHAB
       %br/
       Novo Cadastro
 
@@ -58,10 +58,10 @@
 
   $(document).ready(function() {
     $("#candidate_state_id").on('change', function() {
-    
+
       html = '<option value>Carregando...</option>'
       $("#candidate_city_id").html(html)
-    
+
       $.getJSON("#{cities_path}?state=" + $(this).val(), function(data) {
         html = ""
         console.log(data)

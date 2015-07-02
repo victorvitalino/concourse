@@ -16,3 +16,4 @@
  *= require lib/session
  *= require redactor-rails
   */
+  .navbar-default{ border-color: #012942!important;}
