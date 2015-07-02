@@ -13,6 +13,19 @@
 
 ActiveRecord::Schema.define(version: 20150701194905) do
 
+  create_table "candidate_enrollments", force: :cascade do |t|
+    t.integer  "enrollment_id"
+    t.integer  "candidate_id"
+    t.string   "enrollment_type"
+    t.integer  "status"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "candidate_enrollments", ["candidate_id"], name: "index_candidate_enrollments_on_candidate_id"
+  add_index "candidate_enrollments", ["enrollment_id"], name: "index_candidate_enrollments_on_enrollment_id"
+  add_index "candidate_enrollments", ["enrollment_type"], name: "index_candidate_enrollments_on_enrollment_type"
+
   create_table "candidates", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -179,17 +192,6 @@ ActiveRecord::Schema.define(version: 20150701194905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "status_enrollments", force: :cascade do |t|
-    t.integer  "enrollment_id"
-    t.integer  "candidate_id"
-    t.integer  "status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "status_enrollments", ["candidate_id"], name: "index_status_enrollments_on_candidate_id"
-  add_index "status_enrollments", ["enrollment_id"], name: "index_status_enrollments_on_enrollment_id"
 
   create_table "user_project_privileges", force: :cascade do |t|
     t.integer  "user_id"

@@ -6,25 +6,16 @@ module Contest
 
     def new
       @code_enrollment = "Code::#{@model}Enrollment".constantize.new
+      @code_enrollment.build_candidate_enrollment
     end
 
     def create
       @code_enrollment = "Code::#{@model}Enrollment".constantize.new(set_params)
-      @code_enrollment.enrollment_id  = @enrollment.id
-      @code_enrollment.candidate_id   = current_user.id
-
+      @code_enrollment.build_candidate_enrollment.candidate_id = current_user.id
       if @code_enrollment.save
-        @enrollment_status = StatusEnrollment.new
-        @enrollment_status.candidate_id   = current_user.id
-        @enrollment_status.enrollment_id  = @code_enrollment.id
-      
-        if @enrollment_status.save
-          redirect_to contest_root_path
-        else
-          render action: new
-        end
+       
       else
-        render action: new
+        render action: 'new'
       end
     end
 
