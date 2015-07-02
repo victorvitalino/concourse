@@ -4,7 +4,7 @@
       = f.input :name
   .row
     .col-md-12  
-      = f.input :description
+      = f.input :description, input_html: { class: 'redactor'}
   .row
     .col-md-2
       = f.input :start, as: 'string', input_html: { class: 'date', value: (@project.start) ? localize(f.object.start) : nil}
@@ -13,10 +13,13 @@
   %hr/
   .row
     .col-md-3
+      = image_tag @project.logo_url, width: '200' if @project.logo?
       = f.input :logo, as: 'file'
     .col-md-3
+      = image_tag @project.header_url, width: '200' if @project.header?
       = f.input :header, as: 'file'
     .col-md-3
+      = image_tag @project.footer_url, width: '200' if @project.footer?
       = f.input :footer, as: 'file'
   %hr/
   .row

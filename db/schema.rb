@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 20150701194905) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "logo"
     t.string   "header"
     t.string   "footer"

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get 'cities',       as: 'cities',   to: "informations#cities"
   get 'projects',     as: 'projects', to: "informations#projects"
   get 'project/:id',  as: 'project',  to: "informations#project_show"
-  get 'navs/:id',     as: 'navs',     to: "informations#navs"
   get 'page/:id',     as: 'page',     to: "informations#page_show"
 
   namespace :administrator, path: '/administrar' do 

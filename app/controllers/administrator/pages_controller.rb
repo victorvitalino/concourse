@@ -6,7 +6,7 @@ module Administrator
 
 
     def index
-      @pages = @project.pages.unscoped
+      @pages = @project.pages
     end
 
     def new
@@ -46,15 +46,15 @@ module Administrator
     private
 
     def set_project
-      @project = Project.unscoped.friendly.find(params[:project_id])
+      @project = Project.friendly.find(params[:project_id])
     end
 
     def set_page
-      @page = @project.pages.unscoped.friendly.find(params[:id]) 
+      @page = @project.pages.friendly.find(params[:id]) 
     end
 
     def set_page_params
-      params.require(:page).permit(:name, :content, :status)
+      params.require(:page).permit(:name, :content, :status, :project_id)
     end
   end
 end

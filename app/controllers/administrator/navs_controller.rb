@@ -5,7 +5,7 @@ module Administrator
     before_action :set_nav, only: [:edit, :update, :destroy]
 
     def index
-      @navs = @project.navs.unscoped
+      @navs = @project.navs
     end
 
     def new
@@ -50,7 +50,7 @@ module Administrator
     private
 
     def set_nav_params
-      params.require(:nav).permit(:name, :nav_type, :target, :page_id, :url,  :status)
+      params.require(:nav).permit(:name, :nav_type, :target, :page_id, :url,  :status, :project_id)
     end
 
     def set_nav
@@ -58,7 +58,7 @@ module Administrator
     end
 
     def set_project
-      @project = Project.unscoped.friendly.find(params[:project_id])
+      @project = Project.friendly.find(params[:project_id])
     end
   end
 end

@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
 
       t.string  :name
-      t.string  :description
+      t.text  :description
       t.string  :logo
       t.string  :header
       t.string  :footer
