@@ -1,17 +1,24 @@
-.row
-  .col-md-12
-    %p.bs-component
-      %h2
-        %b Inscrições Abertas
-%hr/
-.row
-  .col-md-12
-    %table.table.table-condensed.table-striped
-      %thead
-        %tr
-          %th #
-          %th Concurso
-          %th Inscrição
-          %th Data
-          %th Ações
-      %tbody
+.widget-container.boxed
+  %h3.widget-title Minhas Inscrições
+  .inner
+    .row
+      .col-md-12
+        %table.table.table-condensed.table-striped
+          %thead
+            %tr
+              %th #
+              %th Concurso
+              %th Inscrição
+              %th Data
+              %th Status
+              %th Ações
+          %tbody
+            - @candidate_enrollments.each_with_index do |enrollment, index|
+              %tr
+                %td= index + 1
+                %td= enrollment.enrollment.project.name if enrollment.enrollment.present?
+                %td= enrollment.enrollment.name  if enrollment.enrollment.present?
+                %td= enrollment.enrollment.created_at.strftime('%d/%m/%Y às %H:%M') if enrollment.enrollment.present?
+                %td= enrollment.status
+                %td
+                  = link_to "visualizar", contest_candidate_enrollment_path(enrollment)

@@ -19,4 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
                :city_id, :state_id, :current_password)
     end
   end
+
+
+
 end

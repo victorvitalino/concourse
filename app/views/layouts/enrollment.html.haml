@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Concourse
+    = stylesheet_link_tag    'metro-vibes', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'metro-vibes', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container.container-wide
+      .content
+        = render 'layouts/partials/nav_contest'
+        .row
+          .col-md-12
+            %h2
+              %strong= "Concurso #{@enrollment.project.name}"
+        %hr/
+        = yield

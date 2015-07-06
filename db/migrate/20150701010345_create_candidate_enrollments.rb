@@ -3,9 +3,9 @@ class CreateCandidateEnrollments < ActiveRecord::Migration
     create_table :candidate_enrollments do |t|
       t.references :enrollment, index: true, foreign_key: true
       t.references :candidate,  index: true, foreign_key: true
-      t.integer    :enrollment_id,    index: true
-      t.string     :enrollment_type,  index: true
-      t.integer :status
+      t.integer    :form_id,    index: true
+      t.string     :form_type,  index: true
+      t.integer     :status
 
       t.timestamps null: false
     end

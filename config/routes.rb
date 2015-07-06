@@ -32,21 +32,13 @@ Rails.application.routes.draw do
 
   namespace :contest, path: '/' do 
     authenticate :candidate do 
-      root "home#index"
+      root "enrollments#index"
 
-      resources :projects do 
-        resources :pages
-      end
-
-      resources :enrollments do
-        resources :code_enrollments, path: 'inscricao'
+      resources :enrollments, path: 'inscricoes' do
+        resources :form_enrollments, path: 'inscricao'
       end
       
-      resources :messages
-      resources :status_enrollments
-      resources :users do
-        resources :user_project_privileges
-      end
+      resources :candidate_enrollments, path: 'minhas_inscricoes'
     end
   end
 

@@ -1,11 +1,6 @@
-.row
-  .col-md-12
-    %p.bs-component
-      %h2
-        %b Inscrições Abertas
-%hr/
-.row
-  .col-md-12
+.widget-container.boxed
+  %h3.widget-title Inscrições Abertas
+  .inner
     %table.table.table-condensed.table-striped
       %thead
         %tr
@@ -18,4 +13,8 @@
         - @enrollments.each_with_index do |enrollment, i|
           %tr
             %td= i + 1
-            %td= enrollment
+            %td= enrollment.project.name
+            %td= enrollment.name
+            %td
+            %td
+              = link_to "Participar", new_contest_enrollment_form_enrollment_path(enrollment)

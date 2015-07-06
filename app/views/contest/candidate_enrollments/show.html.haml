@@ -1,0 +1,44 @@
+.row
+  .col-md-12
+    %h2
+      %strong Minha inscrição
+      .pull-right
+        %h4= @candidate_enrollment.status
+    %h4= "CODHAB#{@candidate_enrollment.id}#{@candidate_enrollment.created_at.strftime('%Y')}"
+%hr/
+.row
+  .col-md-12
+    %h3
+      %strong Concurso
+    %h4= @candidate_enrollment.enrollment.project.name
+.row
+  .col-md-3
+    %h3
+      %strong Tipo de Inscrição
+    %h4= @candidate_enrollment.enrollment.name
+  .col-md-3
+    %h3
+      %strong Data de inscrição
+    %h4= @candidate_enrollment.created_at.strftime('%d/%m/%Y às %H:%M')
+  .col-md-3
+    %h3
+      %strong Protocolo
+    %h4= "CODHAB#{@candidate_enrollment.id}#{@candidate_enrollment.created_at.strftime('%Y')}"
+%hr/
+.row
+  .col-md-3
+    %h3
+      %strong Nome
+    %h4= @candidate_enrollment.candidate.name
+  .col-md-3
+    %h3
+      %strong CPF
+    %h4= @candidate_enrollment.candidate.cpf
+  .col-md-3
+    %h3
+      %strong RG
+    %h4= @candidate_enrollment.candidate.rg
+%hr/
+.row
+  .col-md-12
+    %h1 Mensagens

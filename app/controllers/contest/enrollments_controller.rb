@@ -1,7 +1,7 @@
 module Contest
   class EnrollmentsController < ApplicationController
     def index
-      @enrollments = StatusEnrollment.where(candidate_id: current_user.id)
+      @enrollments = Enrollment.all
     end
 
   end

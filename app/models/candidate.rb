@@ -8,6 +8,8 @@ class Candidate < ActiveRecord::Base
   belongs_to :state
   belongs_to :city
 
+  has_many :candidate_enrollments
+
   enum :sex => [:masculino, :feminino]
 
   validates_presence_of :name, :cpf, :rg, :sex, :telephone#, :state, :city, :address

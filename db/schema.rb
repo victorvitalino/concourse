@@ -16,15 +16,17 @@ ActiveRecord::Schema.define(version: 20150701194905) do
   create_table "candidate_enrollments", force: :cascade do |t|
     t.integer  "enrollment_id"
     t.integer  "candidate_id"
-    t.string   "enrollment_type"
+    t.integer  "form_id"
+    t.string   "form_type"
     t.integer  "status"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "candidate_enrollments", ["candidate_id"], name: "index_candidate_enrollments_on_candidate_id"
   add_index "candidate_enrollments", ["enrollment_id"], name: "index_candidate_enrollments_on_enrollment_id"
-  add_index "candidate_enrollments", ["enrollment_type"], name: "index_candidate_enrollments_on_enrollment_type"
+  add_index "candidate_enrollments", ["form_id"], name: "index_candidate_enrollments_on_form_id"
+  add_index "candidate_enrollments", ["form_type"], name: "index_candidate_enrollments_on_form_type"
 
   create_table "candidates", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -71,17 +73,6 @@ ActiveRecord::Schema.define(version: 20150701194905) do
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
 
-  create_table "code_marca_enrollments", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "candidate_id"
-    t.integer  "enrollment_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "code_marca_enrollments", ["candidate_id"], name: "index_code_marca_enrollments_on_candidate_id"
-  add_index "code_marca_enrollments", ["enrollment_id"], name: "index_code_marca_enrollments_on_enrollment_id"
-
   create_table "enrollments", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "name"
@@ -98,6 +89,14 @@ ActiveRecord::Schema.define(version: 20150701194905) do
   end
 
   add_index "enrollments", ["project_id"], name: "index_enrollments_on_project_id"
+
+  create_table "form_marca_enrollments", force: :cascade do |t|
+    t.string   "digital_rg"
+    t.string   "digital_voter"
+    t.string   "digital_check_voter"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer  "enrollment_id"

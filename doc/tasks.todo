@@ -3,8 +3,8 @@ concourse
     ✔ eu como candidato realizo cadastro e obtenho acesso a área do candidato @done (15-07-01 11:03)
     ✔ eu como candidato edito minhas informações pessoais @done (15-07-01 11:21)
     ✔ eu como candidato atualizo minha senha @done (15-07-01 11:21)
-    ☐ eu como candidato visualizo projetos
-    ☐ eu como candidato visualizo detalhes de um projeto
+    ✔ eu como candidato visualizo projetos @done (15-07-03 09:31)
+    ✔ eu como candidato visualizo detalhes de um projeto @done (15-07-03 09:31)
     ☐ eu como candidato visualizo inscrições de um projeto
     ☐ eu como candidato realizo a inscrição em um projeto
     ☐ eu como candidato visualizo detalhes de minha inscrição
@@ -20,7 +20,7 @@ concourse
     ✔ eu como administrador realizo a criação e envio de projetos vínculado a inscrições @done (15-07-01 15:09)
     ☐ eu como administrador cadastro novos usuários
     ☐ eu como administrador insiro permissões aos usuários por projeto
-    ☐ eu como administrador atualizo minha senha
+    ✔ eu como administrador atualizo minha senha @done (15-07-03 09:31)
     ☐ eu como administrador realizo a visualização de candidatos do concurso
     ☐ eu como administrador realizo a homologação do candidato
     ☐ eu como administrador envio mensagens pela plataforma ao candidato
