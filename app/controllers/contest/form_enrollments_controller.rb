@@ -21,7 +21,7 @@ module Contest
     end
 
     def show
-      @form = "Form::Form#{@model}Enrollment".constantize.find(params[:id])
+      @form = current_candidate.candidate_enrollments.find_by_form_id(params[:id])
     end
 
     private

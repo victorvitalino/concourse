@@ -22,6 +22,7 @@ gem 'validates_timeliness', '~> 3.0'
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'pg'
+gem 'nprogress-rails'
 
 group :development, :test do
   gem 'byebug'

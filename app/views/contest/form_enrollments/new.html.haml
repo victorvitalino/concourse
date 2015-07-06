@@ -1,5 +1,9 @@
-.row
-  .col-md-3
-    = render 'description'
-  .col-md-9
-    = render "contest/form_enrollments/form/form_#{@model.downcase}"
+.widget-container.boxed
+  %h3.widget-title
+    Inscrição
+  .inner
+    .row
+      .col-md-3
+        = render 'description'
+      .col-md-9
+        = render "contest/form_enrollments/form/form_#{@model.downcase}"

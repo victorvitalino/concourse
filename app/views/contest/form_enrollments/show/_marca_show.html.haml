@@ -1,31 +1,37 @@
-.panel.panel-success
-  .panel-heading
-    .panel-title
-      %b Minha Inscrição
-  .panel-body
-    .row
-      .col-md-12
-        %h4 Concurso/Inscrição
-        %h1
-          %b= "#{@form.candidate_enrollment.enrollment.project.name} - #{@form.candidate_enrollment.enrollment.name}"
-    .row
-      .col-md-6
-        %h4 Data
-        %h1
-          %b= @form.created_at.strftime('%d/%m/%Y às %H:%M')
-    .row
-      .col-md-6
-        %h4 Protocolo
-        %h1
-          %b= "CODHAB#{@form.id}#{@form.created_at.strftime('%Y')}"
-    .row
-      .col-md-3
-        %h4 Status
-        %h1
-        - if @form.candidate_enrollment.success?
-          %b= @form.candidate_enrollment.status
-        - elsif @form.candidate_enrollment.error?
-
-        - else
-          .alert.alert-info
-            %b Em Análise
+.row
+  .col-md-12
+    %h4 Concurso/Inscrição
+    %h1
+      %strong= "#{@form.enrollment.project.name} - #{@form.enrollment.name}"
+.row
+  .col-md-6
+    %h4 Data
+    %h1
+      %strong= @form.created_at.strftime('%d/%m/%Y às %H:%M')
+  .col-md-6
+    %h4 Protocolo
+    %h1
+      %strong= "CODHAB#{@form.id}#{@form.created_at.strftime('%Y')}"
+.row
+  .col-md-3
+    %h4 Status
+    %h1
+    - if @form.success?
+      %b= @form.status
+    - elsif @form.error?
+    - else
+      %h2
+        %strong Em Análise
+%hr/
+.row
+  .col-md-6
+    %h4 RG Digitalizado
+    %h2= link_to "Baixar Arquivo"
+.row
+  .col-md-6
+    %h4 Título Eleitoral Digitalizado
+    %h2= link_to "Baixar Arquivo"
+.row
+  .col-md-6
+    %h4 Comprovante Eleitoral Digitalizado
+    %h2= link_to "Baixar Arquivo"

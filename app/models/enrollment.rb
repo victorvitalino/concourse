@@ -3,11 +3,13 @@ class Enrollment < ActiveRecord::Base
 
   default_scope {where(status: true)}
   validates_presence_of :name, :description, :start, :end
+
   validates :code, presence: true, uniqueness: true
-  validates_date :start, before: :end
   validates :fee_value, presence: true, numericality: true, if: :fee?
 
+  validates_date :start, before: :end
 
+  has_many :candidate_enrollments
   private
 
   def fee?

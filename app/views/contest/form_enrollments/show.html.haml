@@ -1,5 +1,8 @@
-.row
-  .col-md-3
-    = render 'description'
-  .col-md-9
-    = render "contest/form_enrollments/show/#{@model.downcase}_show"
+.widget-container.boxed
+  %h3.widget-title Minha Inscrição 
+  .inner
+    .row
+      .col-md-3
+        = render 'description'
+      .col-md-9
+        = render "contest/form_enrollments/show/#{@model.downcase}_show"

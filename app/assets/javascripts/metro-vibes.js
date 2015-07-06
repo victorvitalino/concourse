@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require redactor-rails
 //= require metro-vibes/js/general
+//= require nprogress
+//= require nprogress-turbolinks
+
+NProgress.configure({
+  showSpinner: false,
+  ease: 'ease',
+  speed: 250
+});

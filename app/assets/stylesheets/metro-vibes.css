@@ -12,4 +12,5 @@
  *
  *= require lib/bootstrap.min
  *= require metro-vibes/style
+ *= require nprogress-style
  */
