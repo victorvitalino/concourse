@@ -15,6 +15,6 @@
             %td= i + 1
             %td= enrollment.project.name
             %td= enrollment.name
-            %td
-            %td
-              = link_to "Participar", new_contest_enrollment_form_enrollment_path(enrollment)
+            %td= "#{enrollment.start.strftime("%d/%m/%Y")} à #{enrollment.end.strftime('%d/%m/%Y')}"
+            %td.col-md-2
+              = link_to "<span class='gradient'>Participar</span>".html_safe, new_contest_enrollment_form_enrollment_path(enrollment), class: 'btn btn-brown btn-small'

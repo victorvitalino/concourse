@@ -105,7 +105,7 @@ body {
     color:#8e8071;
   font-size:13px;
   position:relative;
-  background-color: #FFF3E5;
+  background: #aa8a6e url(images/bg.jpg) center top repeat;
 }
 
 table th {
@@ -961,7 +961,7 @@ p{
 }
 
 /* Responsive Feature */
-
+/*   background-color: #A38973;*/
 @media (min-width: 992px) and (max-width: 1199px){
     .col-sm-8 .pricing_box li.price_col {width: 212px; margin:0 -11px;}
     .col-sm-8 .pricing_box li.col_active {width: 230px;}
@@ -987,6 +987,9 @@ p{
 /* Sidebar widgets */
 /*-----------------------------------*/
 
+.strong {
+  color: white;
+}
 .widget-container{margin-bottom: 30px;}
 .widget-container .widget-title{
     padding: 19px 20px 19px 33px;
@@ -995,7 +998,7 @@ p{
     color: #fff;
     text-transform: uppercase;
   margin-bottom:0;
-    background: #7b6d5e;
+    background: #54bc75;
     -webkit-box-shadow: inset 0 -2px 2px rgba(57,57,57,.36);
     -moz-box-shadow: inset 0 -2px 2px rgba(57,57,57,.36);
     box-shadow: inset 0 -2px 2px rgba(57,57,57,.36);
@@ -2475,7 +2478,7 @@ input[type="password"]:focus{
 /*-----------------------------------*/
 
 .widget_profile .widget-title {
-    background: #b1a599;
+    background: #54bc75;
     box-shadow: inset 0 -2px 2px rgba(73, 73, 73, 0.16);
     padding: 33px 20px 37px 122px;
 }

@@ -9,10 +9,15 @@
   %body
     .container.container-wide
       .content
+        .row
+          .col-md-12
+            %h1 
+              .strong Área do Candidato 
+              %strong.strong Concursos Codhab
         = render 'layouts/partials/nav_contest'
         .row
           .col-md-12
             %h2
-              %strong= "Concurso #{@enrollment.project.name}"
+              %strong.strong= "Concurso #{@enrollment.project.name}"
         %hr/
         = yield

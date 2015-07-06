@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  layout 'application'
+  layout 'contest'
 
   before_filter :configure_permitted_parameters
 
