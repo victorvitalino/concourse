@@ -1,3 +1,7 @@
 pt-BR:
  confirm_remove: "Tem certeza que deseja remover?"
  success: 'Operação realizada com successo!'
+ recaptcha:
+  verification_failed: "Ops"
+  errors:
+   incorrect-captcha-sol: 'Fail'

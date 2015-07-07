@@ -185,6 +185,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rdoc (4.2.0)
+    recaptcha (0.4.0)
     redactor-rails (0.5.0)
       devise
       mime-types
@@ -261,6 +262,7 @@ DEPENDENCIES
   pg
   pundit!
   rails (= 4.2.3)
+  recaptcha
   redactor-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

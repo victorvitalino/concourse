@@ -23,6 +23,7 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'pg'
 gem 'nprogress-rails'
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :development, :test do
   gem 'byebug'

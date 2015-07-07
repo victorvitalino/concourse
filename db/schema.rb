@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701194905) do
+ActiveRecord::Schema.define(version: 20150707195739) do
 
   create_table "candidate_enrollments", force: :cascade do |t|
     t.integer  "enrollment_id"
@@ -72,6 +72,18 @@ ActiveRecord::Schema.define(version: 20150701194905) do
   end
 
   add_index "cities", ["state_id"], name: "index_cities_on_state_id"
+
+  create_table "consults", force: :cascade do |t|
+    t.integer  "project_id"
+    t.string   "title"
+    t.integer  "content_id"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "consults", ["content_id"], name: "index_consults_on_content_id"
+  add_index "consults", ["project_id"], name: "index_consults_on_project_id"
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "project_id"
