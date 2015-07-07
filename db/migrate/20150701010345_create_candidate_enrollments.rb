@@ -5,7 +5,7 @@ class CreateCandidateEnrollments < ActiveRecord::Migration
       t.references :candidate,  index: true, foreign_key: true
       t.integer    :form_id,    index: true
       t.string     :form_type,  index: true
-      t.integer     :status
+      t.integer    :status, default: 1
 
       t.timestamps null: false
     end

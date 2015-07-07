@@ -13,25 +13,21 @@
     %h1
       %strong= "CODHAB#{@form.id}#{@form.created_at.strftime('%Y')}"
 .row
-  .col-md-3
+  .col-md-6
     %h4 Status
     %h1
-    - if @form.success?
-      %b= @form.status
-    - elsif @form.error?
-    - else
-      %h2
-        %strong Em Análise
-%hr/
+      = candidate_helper @form.status
+    %h2
+      = link_to "<span class='gradient'>emitir boleto</span>".html_safe, "#", class: 'btn btn-default btn-lime' if @form.waiting?
 .row
   .col-md-6
     %h4 RG Digitalizado
-    %h2= link_to "Baixar Arquivo"
+    %h2= link_to "Baixar Arquivo", @form.form.digital_rg_url
 .row
   .col-md-6
     %h4 Título Eleitoral Digitalizado
-    %h2= link_to "Baixar Arquivo"
+    %h2= link_to "Baixar Arquivo", @form.form.digital_voter_url
 .row
   .col-md-6
     %h4 Comprovante Eleitoral Digitalizado
-    %h2= link_to "Baixar Arquivo"
+    %h2= link_to "Baixar Arquivo", @form.form.digital_check_voter_url

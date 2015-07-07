@@ -4,51 +4,34 @@
     .pull-right= "CODHAB#{@candidate_enrollment.id}#{@candidate_enrollment.created_at.strftime('%Y')}"
   .inner
     %br/
-    .col-md-12
-      %h3
-        %strong Concurso
-      %h4= @candidate_enrollment.enrollment.project.name
     .row
-      .col-md-12
-        .col-md-3
-          %h3
-            %strong Tipo de Inscrição
-          %h4= @candidate_enrollment.enrollment.name
-        .col-md-3
-          %h3
-            %strong Data de inscrição
-          %h4= @candidate_enrollment.created_at.strftime('%d/%m/%Y às %H:%M')
-        .col-md-3
-          %h3
-            %strong Protocolo
-          %h4= "CODHAB#{@candidate_enrollment.id}#{@candidate_enrollment.created_at.strftime('%Y')}"
-        .col-md-3
-          %h3
-            %strong Status
-          %h4= @candidate_enrollment.status
-    %hr/
-    .row
-      .col-md-12
-        .col-md-3
-          %h3
-            %strong Nome
-          %h4= @candidate_enrollment.candidate.name
-        .col-md-3
-          %h3
-            %strong CPF
-          %h4= @candidate_enrollment.candidate.cpf
-        .col-md-3
-          %h3
-            %strong RG
-          %h4= @candidate_enrollment.candidate.rg
-    %hr/
-    .row
-      .col-md-12
-        .col-md-3
-          %h3
-            %strong Mensagens
-    %hr/
-    .row
-      .col-md-12
-        .col-md-3
-         
+      .col-md-3
+        .row
+          .col-md-12
+            %h5
+              Inscrição
+            = @candidate_enrollment.enrollment.name
+        .row
+          .col-md-12
+            %h5 Protocolo
+            = "CODHAB#{@candidate_enrollment.id}#{@candidate_enrollment.created_at.strftime('%Y')}"
+        .row
+          .col-md-12
+            %h5 Status
+            = candidate_helper @candidate_enrollment.status
+      .col-md-9
+        .row
+          .col-md-12
+            %h5 Nome
+            = @candidate_enrollment.candidate.name
+        .row
+          .col-md-3
+            %h5 CPF
+            = @candidate_enrollment.candidate.cpf
+          .col-md-3
+            %h5 RG
+            = @candidate_enrollment.candidate.rg
+          .col-md-3
+            %h5 Cidade/Estado
+        .row
+          .col-md-12

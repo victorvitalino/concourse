@@ -8,7 +8,7 @@
     %h4
       %p
         %b Taxa de inscrição
-    = (@enrollment.fee) ? @enrollment.fee_value : "Não existe taxa"
+    = (@enrollment.fee) ? number_to_currency(@enrollment.fee_value) : "Não existe taxa"
   .row
     %h4
       %p

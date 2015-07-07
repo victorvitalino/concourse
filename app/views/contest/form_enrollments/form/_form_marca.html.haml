@@ -2,13 +2,13 @@
   = simple_form_for @form, url: contest_enrollment_form_enrollments_path do |f|
     .row
       .col-md-12
-        = f.input :digital_rg
+        = f.input :digital_rg, as: 'file'
     .row
       .col-md-12
-        = f.input :digital_voter
+        = f.input :digital_voter, as: 'file'
     .row
       .col-md-12
-        = f.input :digital_check_voter
+        = f.input :digital_check_voter, as: 'file'
     %hr/
     .row
       .col-md-12

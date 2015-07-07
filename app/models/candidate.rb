@@ -13,7 +13,7 @@ class Candidate < ActiveRecord::Base
   enum :sex => [:masculino, :feminino]
 
   validates_presence_of :name, :cpf, :rg, :sex, :telephone#, :state, :city, :address
-  validates :cpf, cpf: true
+  validates :cpf, cpf: true, uniqueness: true
   validates :telephone, numericality: true
   validates :telephone_optional, numericality: true, allow_blank: true
   validates :cep, numericality: true, allow_blank: true

@@ -17,4 +17,7 @@
             %td= enrollment.name
             %td= "#{enrollment.start.strftime("%d/%m/%Y")} à #{enrollment.end.strftime('%d/%m/%Y')}"
             %td.col-md-2
-              = link_to "<span class='gradient'>Participar</span>".html_safe, new_contest_enrollment_form_enrollment_path(enrollment), class: 'btn btn-brown btn-small'
+              - if current_candidate.candidate_enrollments.where(enrollment_id: enrollment.id).present?
+                = link_to "<span class='gradient'>Já inscrito</span>".html_safe, "#", class: 'btn btn-default btn-small'
+              - else
+                = link_to "<span class='gradient'>Participar</span>".html_safe, new_contest_enrollment_form_enrollment_path(enrollment), class: 'btn btn-brown btn-small'

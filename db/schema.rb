@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20150701194905) do
     t.integer  "candidate_id"
     t.integer  "form_id"
     t.string   "form_type"
-    t.integer  "status"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "status",        default: 1
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "candidate_enrollments", ["candidate_id"], name: "index_candidate_enrollments_on_candidate_id"

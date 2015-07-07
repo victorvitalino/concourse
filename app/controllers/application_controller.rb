@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
 
   layout :set_layout
 
+  include Pundit
+  
   private
 
   def set_layout

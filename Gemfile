@@ -9,7 +9,7 @@ gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'pundit'
+gem 'pundit', :git => "https://github.com/elabs/pundit.git", :branch => "namespaces"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'redactor-rails'

@@ -6,4 +6,17 @@ module ApplicationHelper
       "<span class='label label-default'>Inativo</span>".html_safe
     end
   end
+
+  def candidate_helper(status)
+    case status
+    when 'verify'
+      "Em análise"
+    when 'success'
+      "Homologado"
+    when 'error'
+      "Não homologado"
+    when 'waiting'
+      "Aguardando pagamento" 
+    end
+  end
 end
