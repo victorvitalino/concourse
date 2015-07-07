@@ -1,15 +1,25 @@
 .widget-container.boxed
-  %h3.widget-title{"style":"text-align: center;"} Acesso ao Portal
+  %h3.widget-title{"style":"text-align: center;"} Acesso a Área de Candidato
   .inner
     .row
-      .col-md-12
+      .col-md-5
+        .col-md-offset-3{"style":"padding-top: 60px"}
+          %h2 Não possui uma conta?
+          %h2= link_to "<span class='gradient'>Realizar Meu Cadastro</span>".html_safe, new_registration_path(resource_name), class: 'btn btn-green'
+      .col-md-2
+      .col-md-5
+        %h2 Acessar minha conta
         = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper_html: { class: 'form-sigin'}) do |f|
           %span#reauth-email.reauth-email
           = f.input :email, required: false, autofocus: true, input_html: { placeholder: "Digite seu e-mail"}
           = f.input :password, required: false, input_html: { placeholder: "Digite sua senha"}
           = f.input :remember_me, as: :boolean,input_html: { id: "remember.checkbox"} if devise_mapping.rememberable?
-          %hr/
-          = button_tag "<span class='gradient'>Realizar Acesso</span>".html_safe, class: 'btn btn-brown pull-right'
-        = render "devise/shared/links"
+          = button_tag "<span class='gradient'>Realizar Acesso</span>".html_safe, class: 'btn btn-green btn-small'
+    %hr/
+    .row
+      .col-md-6
+        = link_to "Perdeu sua senha?", new_password_path(resource_name)
+      .col-md-6
+        = link_to "Não recebeu o e-mail de confirmação?", new_confirmation_path(resource_name), class: 'pull-right'
 
     

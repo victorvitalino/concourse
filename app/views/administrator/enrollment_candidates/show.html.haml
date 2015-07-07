@@ -1,0 +1,77 @@
+.row
+  .col-md-4
+    %h2
+      %strong= "CODHAB#{@candidate.id}#{@candidate.created_at.strftime('%Y')}"
+    = link_to "voltar para lista de inscritos", administrator_project_enrollment_candidates_path(project_id: @project.id)
+
+%hr/
+.row
+  .col-md-2
+    %h4
+      %strong Taxa de inscrição
+    Não paga
+  .col-md-2
+    %h4
+      %strong Projeto
+    Não enviado
+  .col-md-2
+    %h4
+      %strong Interações
+    = link_to 'Enviar mensagem', '#message'
+  .col-md-2
+    %h4
+      %strong Status
+    = link_to 'Em análise'
+%hr/
+.row
+  .col-md-4
+    %h4
+      %strong Nome
+    = @candidate.candidate.name
+  .col-md-2
+    %h4
+      %strong CPF
+    = @candidate.candidate.cpf
+  .col-md-2
+    %h4
+      %strong RG
+    = @candidate.candidate.rg
+  .col-md-2
+    %h4
+      %strong Data de nascimento
+    10/10/2005
+%hr/
+.row
+  .col-md-2
+    %h4
+      %strong E-mail
+    = @candidate.candidate.email
+  .col-md-2
+    %h4
+      %strong Telefone
+    = @candidate.candidate.telephone
+  .col-md-2
+    %h4
+      %strong Cidade/Estado
+%hr/
+= render "administrator/enrollment_candidates/show/#{@candidate.enrollment.code.downcase}_show"
+%hr/
+.row#message
+  .col-md-2
+    %h2
+      %strong Interações
+    = link_to 'nova interação', new_administrator_project_enrollment_candidate_message_path(enrollment_candidate_id: @candidate), remote: true
+%hr/
+.row
+  .col-md-12
+    %table.table.table-condensed.table-bordered
+      %thead
+        %tr
+          %th #
+          %th Título
+          %th Conteúdo
+          %th Tipo
+          %th Status
+      %tbody
+        %tr
+          %td

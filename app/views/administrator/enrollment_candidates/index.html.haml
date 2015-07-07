@@ -1,1 +1,26 @@
-Nenhuma inscrição.
+
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th #
+      %th Nome
+      %th CPF
+      %th E-mail
+      %th Inscrição
+      %th Data de inscrição
+      %th Status
+      %th Ação
+  %tbody
+    - @candidates.each_with_index do |c, index|
+      %tr
+        %td= index + 1
+        %td= c.candidate.name   if c.candidate.present?
+        %td= c.candidate.cpf    if c.candidate.present?
+        %td= c.candidate.email  if c.candidate.present?
+        %td= c.enrollment.name  if c.enrollment.present?
+        %td= c.created_at.strftime('%d/%m/%Y às %H:%M') 
+        %td= c.status
+        %td
+          = link_to "visualizar", administrator_project_enrollment_candidate_path(project_id: @project.id, id: c.id)
+          = link_to "homologar"
+          = link_to "enviar mensagem"

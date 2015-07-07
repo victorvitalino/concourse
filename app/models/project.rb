@@ -11,7 +11,8 @@ class Project < ActiveRecord::Base
   has_many :navs
   has_many :enrollments
   has_many :participations
-  
+  has_many :candidate_enrollments, :through => :enrollments
+    
   mount_uploader :logo, ImageUploader
   mount_uploader :header, ImageUploader
   mount_uploader :footer, ImageUploader

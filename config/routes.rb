@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :passwords
       
       resources :projects do 
-        resources :enrollment_candidates
+        resources :enrollment_candidates do 
+          resources :messages
+        end
         resources :participation_candidates
         resources :winners
 

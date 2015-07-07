@@ -14,3 +14,22 @@
  *= require metro-vibes/style
  *= require nprogress-style
  */
+
+.alert-danger {
+  background-color: #BC5454;
+  border-color: #BC5454;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error 
+.radio-inline, .has-error .checkbox-inline, .has-error.radio label, .has-error.checkbox label, 
+.has-error.radio-inline label, .has-error.checkbox-inline label, .has-error .form-control-feedback {
+  color: #BC5454 !important;
+}
+
+.has-error .form-control, .has-error .form-control:focus {
+  border: 1px solid #BC5454;
+  -webkit-box-shadow: inset 0 2px 0 rgba(0,0,0,0.075);
+  box-shadow: inset 0 2px 0 rgba(0,0,0,0.075);
+}

@@ -14,7 +14,7 @@
             %h1 
               .strong Área do Candidato 
               %strong.strong Concursos Codhab
-        = render 'layouts/partials/nav_contest'
+        = render 'layouts/partials/nav_contest' if candidate_signed_in?
         .row
           .col-md-12
             %h2

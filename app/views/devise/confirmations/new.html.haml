@@ -1,9 +1,21 @@
-%h2 Resend confirmation instructions
-= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-  = f.error_notification
-  = f.full_error :confirmation_token
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-  .form-actions
-    = f.button :submit, "Resend confirmation instructions"
-= render "devise/shared/links"
+.row{'style':'margin-top:100px'}
+  .col-md-10.col-md-offset-1
+    %h1{"style":"text-align: center;"} 
+      .strong Área do Candidato 
+      %strong.strong Concursos Codhab
+.row
+  .col-md-6.col-md-offset-3
+    .widget-container.boxed
+      %h3.widget-title{"style":"text-align: center;"} Re-enviar confirmação de e-mail
+      .inner
+        .row
+          .col-md-12
+            = simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+              = f.error_notification
+              = f.full_error :confirmation_token
+              .form-inputs
+                = f.input :email, required: true, autofocus: true
+              .form-actions
+                = link_to "<span class='gradient'>Voltar ao Acesso</span>".html_safe, new_session_path(resource_name), class: 'btn btn-primary'
+                = button_tag"<span class='gradient'>Enviar Confirmação</span>".html_safe, class: 'btn btn-green  pull-right'
+             

@@ -10,9 +10,11 @@
     .container.container-wide
       .content
         .row
-          .col-md-5.col-md-offset-3
+          .col-md-10.col-md-offset-1
             %h1{"style":"text-align: center;"} 
               .strong Área do Candidato 
               %strong.strong Concursos Codhab
             %hr/
+            - flash.each do |name, msg|
+              = content_tag :section, msg, :id => "flash_#{name}", :class => "alert alert-danger"
             = yield

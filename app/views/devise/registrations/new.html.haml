@@ -5,7 +5,9 @@
     .row
       .card
         = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), wrapper_html: { class: 'form-sigin'}) do |f|
-          = f.error_notification
+          .row
+            .col-md-12
+              = f.error_notification
           %span#reauth-email.reauth-email
           .row
             .col-md-6
@@ -38,12 +40,12 @@
               = f.input :password, required: false, input_html: { placeholder: "Digite sua senha"}
             .col-md-4
               = f.input :password_confirmation, required: false, input_html: { placeholder: "Repita sua senha"}
-          .row
-            .col-md-12
-              = f.input :remember_me, as: :boolean,input_html: { id: "remember.checkbox"} if devise_mapping.rememberable?
-              = f.button :submit, "Realizar meu Cadastro", class: 'btn btn-success pull-right'
-              = render "devise/shared/links"
           %hr/
+          .row
+            .col-md-6
+              = link_to "<span class='gradient'>Já possuo uma conta</span>".html_safe, new_session_path(resource_name), class: 'btn btn-primary'
+            .col-md-6
+              = button_tag "<span class='gradient'>Realizar meu Cadastro</span>".html_safe, class: 'btn btn-green pull-right'
         / /form
       / /card-container
       / /container

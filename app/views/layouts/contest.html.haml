@@ -14,5 +14,7 @@
             %h1 
               .strong Área do Candidato 
               %strong.strong Concursos Codhab
-        = render 'layouts/partials/nav_contest'
+              .pull-right
+                %strong= current_candidate.name.humanize if candidate_signed_in?
+        = render 'layouts/partials/nav_contest' if candidate_signed_in?
         = yield
